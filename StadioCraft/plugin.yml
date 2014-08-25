@@ -1,0 +1,13 @@
+name: StadioCraftPlugin
+main: me.stadio.Main
+version: 1.0
+
+commands:
+  regen:
+    description: Regen
+  fury:
+    description: Fury
+  rage:
+    description: Rage
+  tnt:
+    description: Throw tnt!
