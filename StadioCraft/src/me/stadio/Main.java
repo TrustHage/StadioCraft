@@ -5,6 +5,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin
 {
 
+	public static Main plugin;
+	
 	@Override
 	public void onEnable()
 	{
@@ -13,11 +15,13 @@ public class Main extends JavaPlugin
 		getCommand("fury").setExecutor(new FuryCommand());
 		getCommand("rage").setExecutor(new RageCommand());
 		getCommand("tnt").setExecutor(new TNTCommand());
+		getConfig().options().copyDefaults(true);
+		saveConfig();
 		}
 	
 	@Override
 	public void onDisable()
 	{
-		
+		saveConfig();
 	}
 }
