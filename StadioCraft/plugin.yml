@@ -11,3 +11,5 @@ commands:
     description: Rage
   tnt:
     description: Throw tnt!
+  cooldown:
+    description: cooldown command
