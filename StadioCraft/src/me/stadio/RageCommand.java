@@ -15,7 +15,7 @@ public class RageCommand implements CommandExecutor
 {
 
 	private Map<String, Long> lastUsage = new HashMap<String, Long>();
-	private final int cdtime = 600;
+	private final int cdtime = Main.plugin.getConfig().getInt("Rage CooldownTime");
 	
 	@Override
 	public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3)
@@ -40,7 +40,7 @@ public class RageCommand implements CommandExecutor
 			
 			if (System.currentTimeMillis()-lastUsed>=cdmillis)
 			{
-				player.sendMessage(Main.plugin.getConfig().getString("RAGE"));
+				player.sendMessage(ChatColor.GREEN + Main.plugin.getConfig().getString("Rage Message"));
 				lastUsage.put(player.getName(), System.currentTimeMillis());
 				player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 700, 0));
 				player.addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 700, 2));

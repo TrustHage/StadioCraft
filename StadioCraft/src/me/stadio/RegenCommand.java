@@ -15,7 +15,7 @@ public class RegenCommand implements CommandExecutor
 {
 	
 	private Map<String, Long> lastUsage = new HashMap<String, Long>();
-	private final int cdtime = 600;
+	private final int cdtime = Main.plugin.getConfig().getInt("Regen CooldownTime");
 
 	@Override
 	public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3)
@@ -39,7 +39,7 @@ public class RegenCommand implements CommandExecutor
 			
 			if (System.currentTimeMillis()-lastUsed>=cdmillis)
 			{
-				player.sendMessage(ChatColor.GREEN + "You used your regen ability");
+				player.sendMessage(ChatColor.GREEN + Main.plugin.getConfig().getString("Regen Message"));
 				lastUsage.put(player.getName(), System.currentTimeMillis());
 				player.addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 12000, 0));
 				player.addPotionEffect(new PotionEffect(PotionEffectType.DAMAGE_RESISTANCE, 12000, 0));

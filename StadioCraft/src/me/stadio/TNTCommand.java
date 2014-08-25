@@ -15,7 +15,7 @@ public class TNTCommand implements CommandExecutor
 {
 	
 	private Map<String, Long> lastUsage = new HashMap<String, Long>();
-	private final int cdtime = 150;
+	private final int cdtime = Main.plugin.getConfig().getInt("TNT CooldownTime");
 
 	@Override
 	public boolean onCommand(CommandSender arg0, Command arg1, String arg2, String[] arg3)
@@ -39,7 +39,7 @@ public class TNTCommand implements CommandExecutor
 		
 		if (System.currentTimeMillis()-lastUsed>=cdmillis)
 		{
-			player.sendMessage(ChatColor.GREEN + "You used your TNT Command!");
+			player.sendMessage(ChatColor.GREEN + Main.plugin.getConfig().getString("TNT Message"));
 			lastUsage.put(player.getName(), System.currentTimeMillis());
 			Entity tnt = player.getPlayer().getWorld().spawn(player.getPlayer().getEyeLocation(), TNTPrimed.class);
 			((TNTPrimed)tnt).setFuseTicks(40);
