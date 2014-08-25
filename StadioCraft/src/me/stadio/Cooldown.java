@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 
 public class Cooldown implements CommandExecutor
 {
-	
+	//Hallo
 	private Map<String, Long> lastUsage = new HashMap<String, Long>();
 	private final int cdtime = 18;
 	
